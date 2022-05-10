@@ -86,6 +86,7 @@ export const SegmentedControlTab = ({
 
   return (
     <TouchableOpacity
+      activeOpacity={1}
       style={[styles.container, tabStyle, {marginLeft: firstItem ? 0 : -8}]}
       disabled={!enabled}
       onPress={onSelect}
