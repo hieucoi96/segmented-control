@@ -56,7 +56,7 @@ const SegmentedControl = ({
 
   React.useEffect(() => {
     if (animation && segmentWidth) {
-      let isRTL = I18nManager.isRTL ? -segmentWidth : segmentWidth;
+      let isRTL = I18nManager.isRTL ? -segmentWidth + 4 : segmentWidth - 4;
       Animated.timing(animation, {
         toValue: isRTL * (selectedIndex || 0),
         duration: 300,
@@ -100,6 +100,7 @@ const SegmentedControl = ({
                 enabled={enabled}
                 selected={selectedIndex === index}
                 key={index}
+                firstItem={index === 0}
                 value={value}
                 tintColor={tintColor}
                 tabStyle={tabStyle}
@@ -119,7 +120,7 @@ const SegmentedControl = ({
             styles.slider,
             {
               transform: [{translateX: animation}],
-              width: segmentWidth - 4,
+              width: segmentWidth - 4 + 4,
               backgroundColor:
                 tintColor || (colorScheme === 'dark' ? '#636366' : 'white'),
             },
